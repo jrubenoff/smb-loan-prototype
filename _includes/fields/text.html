@@ -1,0 +1,18 @@
+<label class="usa-label valtype" for="{{ name }}" data-valtype="label">
+  {% include elements/label.html %}
+</label>
+<div class="field-container">
+  <input type="text"
+     id="{{ name }}"
+     placeholder=""
+     class="usa-input input-md
+     {% if maxlength %} length-{{ maxlength }}{% endif %}"
+     data-valtype="placeholder"
+     {% unless optional %} required="required"{% endunless %}
+     {% if "if" %} data-if="{{ if }}"{% endif %}
+     {% if shows %} data-shows="{{ shows }}"{% endif %}
+     {% if error %} data-error="{{ error }}"{% endif %}
+     {% if maxlength %} maxlength="{{ maxlength }}"{% endif %}
+     >
+  {% include elements/helptext.html %}
+</div>

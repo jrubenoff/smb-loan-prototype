@@ -1,0 +1,20 @@
+<label class="usa-label valtype" for="{{ name }}" data-valtype="label">
+  {% include elements/label.html %}
+</label>
+<div class="field-container">
+  <input type="number"
+     id="{{ name }}"
+     placeholder=""
+     class="usa-input input-md valtype
+     length-{{maxlength | default: '5' }}"
+     data-valtype="placeholder"
+     {% unless optional %} required="required"{% endunless %}
+     {% if "if" %} data-if="{{ if }}"{% endif %}
+     {% if shows %} data-shows="{{ shows }}"{% endif %}
+     {% if error %} data-error="{{ error }}"{% endif %}
+     {% if maxlength %} maxlength="{{maxlength | default: '5'}}"{% endif %}
+     >
+     <span class="units">{{ unit }}</span>
+
+  {% include elements/helptext.html %}
+</div>

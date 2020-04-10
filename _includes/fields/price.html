@@ -1,0 +1,16 @@
+<label class="usa-label valtype" for="{{ name }}" data-valtype="label">
+  {% include elements/label.html %}
+</label>
+
+<div class="price-container">
+  <div class="prepended dollar">$</div>
+  <input type="number" name="{{ name }}" placeholder="" class="usa-input valtype" data-valtype="placeholder" step="0.01"
+  {% unless optional %} required="required"{% endunless %}
+  {% if error %}
+    data-error="{{ error }}"
+  {% else %}
+    data-error="You need to enter a valid price."
+  {% endif %}>
+
+  {% include elements/helptext.html %}
+</div>

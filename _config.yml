@@ -1,0 +1,12 @@
+sass:
+  style: compressed
+  sass_dir: _sass
+plugins:
+  - jekyll-typogrify
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+exclude:
+  - node_modules

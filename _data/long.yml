@@ -1,0 +1,304 @@
+- title: Ready to get started?
+  fields:
+  - type: paragraph
+    label: |
+      This tool helps you understand the emergency financial support your organization qualifies for.
+
+      You will need to supply information like:
+
+      - Your nonprofit status
+      - Your business classification
+      - Revenue and loans
+      - Number of W-2 employees
+
+  - type: header
+    level: 3
+    label: Disclaimer
+
+  - type: paragraph
+    label: |
+      This tool is not an application. Instead, it suggests how to apply for financial support at different state and federal agencies.
+
+      This tool cannot guarantee you will be eligible for support, and does not reserve funding or a place in line. If you choose to apply for support, the agency that awards it will decide whether you qualify.
+
+  - type: header
+    level: 3
+    label: Privacy
+
+  - type: paragraph
+    label: |
+      Everything you share in this tool is anonymous. We may share the information with state and federal agencies to help improve their programs.
+
+- title: Registration
+  fields:
+  - label: Is your organization registered to do business in&hellip;
+    type: checkbox
+    options:
+    - label: The United States or its territories?
+    - label: The state of New Jersey?
+
+- title: Nonprofit status
+  fields:
+  - label: Are you a not-for-profit organization?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: nonprofit
+    - label: "No"
+      shows: for-profit
+
+  - group: nonprofit
+    fields:
+    - label: Is your organization tax-exempt?
+      type: radio
+      options:
+      - label: "Yes"
+        shows: nonprofit-tax-exempt
+      - label: "No"
+
+    - group: nonprofit-tax-exempt
+      fields:
+      - label: Which statuses do your organization qualify for?
+        type: checkbox
+        helptext: Check all that apply.
+        options:
+        - label: 501(c)(3)
+        - label: 501(c)(4)
+        - label: 501(c)(7)
+        - label: 501(c)(19)
+
+- title: About your organization
+  fields:
+  - label: When did your organization start operating?
+    type: radio
+    options:
+    - label: After February 15, 2020
+    - label: Between April 9, 2019 and February 15, 2020
+    - label: Before April 9, 2019
+
+  - label: Does your organization already have a financial relationship with NJEDA, like a loan or incentive agreement?
+    type: radio
+    options:
+    - label: "Yes"
+    - label: "No"
+
+  - label: Does your organization have any non-disaster SBA loans, like 7(a), 504, or microloans?
+    type: radio
+    options:
+    - label: "Yes"
+    - label: "No"
+
+  - label: Is your organization based inside a home?
+    type: radio
+    options:
+    - label: "Yes"
+    - label: "No"
+
+  - label: Does your organization have a physical commercial location in the State of New Jersey?
+    helptext: This might be a physical retail store, production facility, warehouse, or office.
+    type: radio
+    options:
+    - label: "Yes"
+    - label: "No"
+
+- title: Full-time employees
+  fields:
+  - type: paragraph
+    label: |
+      Next, we'll ask you how many W-2 full-time equivalent (FTE) employees your organization has. Here's how to calculate that number:
+
+      - Each full-time W-2 employee is 1 FTE. Only include yourself in this number if you are a W-2 employee of the company.
+
+      - For each part-time W-2 employee, estimate the number of hours they work per week, and divide that number by 35.
+
+      - You should leave out 1099 employees.
+
+      If you have part-time employees, this number might be a decimal like 10.5 or 4.32.
+
+  - label: How many W-2 FTE employees does your organization have?
+    type: number
+
+- title: Revenue
+  fields:
+  - label: Estimate your organization's annual revenue in 2019.
+    type: price
+
+  - label: Estimate your organization's revenue from March 9, 2019 to March 9, 2020.
+    type: price
+
+- title: Location
+  fields:
+    - label: Are at least half of your organization's employees on your NJ WR-30 located in New Jersey?
+      type: radio
+      options:
+      - label: "Yes"
+      - label: "No"
+
+    - label: Is your organization based in New Jersey, with at least one C-suite member that has a main office in the state?
+      type: radio
+      options:
+      - label: "Yes"
+      - label: "No"
+
+
+- title: Loans
+  fields:
+    - label: Do you have financial statements that are prepared by CPAs or management, or filed copies of business tax returns?
+      type: radio
+      options:
+      - label: "Yes"
+      - label: "No"
+
+    - label: Does your organization or one of its owners have a FICO score of at least 600?
+      type: radio
+      options:
+      - label: "Yes"
+      - label: "No"
+
+    - group: for-profit
+      fields:
+      - label:  Would everyone with more than a 10% ownership stake in your organization be willing to provide personal guarantees for any loans?
+        type: radio
+        options:
+        - label: "Yes"
+        - label: "No"
+
+- title: Good standing
+  fields:
+  - label: Can you certify that you are in good standing with the New Jersey Department of Taxation?
+    helptext: For some types of support, you may need to provide a Tax Clearance Certificate. (TK link?)
+    type: radio
+    options:
+    - label: "Yes"
+    - label: "No"
+
+  - label: Are you in good standing with the New Jersey Department of Labor?
+    helptext: To be in good standing, you should have no unpaid unemployment holdings, unpaid fees, or outstanding employee wage and hour violations.
+    type: radio
+    options:
+    - label: "Yes"
+    - label: "No"
+
+  - label: Have the owners tried and failed to get funds from other financial lenders?
+    helptext: Other lenders might include banks and credit unions, short term business loans, or personal loans.
+    type: radio
+    options:
+    - label: "Yes"
+    - label: "No"
+
+- title: Classification
+  fields:
+  - label: Which industries are your organization classified under?
+    helptext: Check all that apply.
+    type: checkbox
+    options:
+    - label: Retail
+    - label: Accommodation and food services
+    - label: Arts, entertainment, and recreation
+    - label: Technology
+    - label: Life sciences
+    - label: Clean energy
+    - label: Offshore wind
+    - label: Advanced manufacturing
+    - label: Finance and professional services
+    - label: Film and digital media
+    - label: None of the above
+
+  - label: Is your organization a real estate developer?
+    type: radio
+    helptext: If your organization mainly divides property into lots and develops it for resale on its own account, you should answer "Yes."
+    options:
+    - label: "Yes"
+    - label: "No"
+
+- title: Agriculture
+  fields:
+  - label: Are you an agricultural enterprise?
+    type: radio
+    helptext: |
+      Answer "yes" if your organization primarily:
+
+      - Produces food and fiber
+
+      - Ranches and raises livestock or fish
+
+      - Is involved in any other farming and agricultural industry
+    options:
+    - label: "Yes"
+    - label: "No"
+
+
+
+- title: Terms
+  fields:
+  - type: paragraph
+    label: |
+      To receive support, the COVID-19 outbreak must negatively impact your organization. A negative impact might look like a:
+
+      - Temporary shut-down
+
+      - Need to reduce hours
+
+      - Drop in revenue over 20%
+
+      - Material impact from employees who can't work
+
+      - Disrupted supply chain that slowed down production
+
+      You must also have no other way to overcome this impact other than these emergency relief funds. In other words, you must lack the cash reserves to support your operations.
+
+  - type: checkbox
+    label: I, my CEO, or their equal certify that all of the above is correct.
+
+- title: Terms
+  fields:
+  - type: paragraph
+    label: |
+      You must also certify that your organization:
+
+      - Will make its best effort not to furlough or lay off anyone from the time you apply for the loan through the end of the COVID-19 outbreak period.
+
+      - Will make its best effort to re-hire any workers it has already furloughed or laid off as soon as possible.
+
+      - Is not violating federal law.
+
+      - Has no principals who own at least 50% of the company and are more than 60 days delinquent on child support obligations.
+
+      - Is not in the lobbying business.
+
+      - Is not a member of Congress or a state, local, or municipal government entity.
+
+      - Does not present live performances of a prurient sexual nature.
+
+      - Does not make money from selling products, services, or presentations of a prurient sexual nature.
+
+  - type: checkbox
+    label: I, my CEO, or my equal certify that all of the above is correct.
+
+- title: Terms
+  fields:
+  - label: |
+      You are not eligible for loans from the State of New Jersey if your organization is:
+
+      - Illegal under New Jersey law.
+
+      - A charitable organization.
+
+      - A hobby.
+
+      - A government-owned concern (TK)
+
+      - An agricultural enterprise.
+
+      - A real estate developer.
+
+      - A traveling merchant.
+
+      - Related to gambling or gaming activities.
+
+      - Related to the sale of pornographic or obscene activities, services, products or materials. (This includes nude or semi-nude performances, or sexual aids or devices.)
+
+    type: paragraph
+
+  - label: My organization isn't any of the above.
+    type: checkbox

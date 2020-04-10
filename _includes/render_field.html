@@ -1,0 +1,86 @@
+{% for field in fields %}
+  {% comment %}
+    Assign field IDs
+  {% endcomment %}
+
+  {% if field.type == 'email' %}       {% assign id = "c04" %}
+  {% elsif field.type == 'phone' %}    {% assign id = "c06" %}
+  {% elsif field.type == 'date' %}     {% assign id = "d02" %}
+  {% elsif field.type == 'time' %}     {% assign id = "d04" %}
+  {% elsif field.type == 'number' %}   {% assign id = "d06" %}
+  {% elsif field.type == 'price' %}    {% assign id = "d08" %}
+  {% elsif field.type == 'url' %}      {% assign id = "d10" %}
+  {% elsif field.type == 'textarea' %} {% assign id = "i14" %}
+  {% elsif field.type == 'file' %}     {% assign id = "m13" %}
+  {% elsif field.type == 'select' %}   {% assign id = "s02" %}
+  {% elsif field.type == 'checkbox' %} {% assign id = "s06" %}
+  {% elsif field.type == 'radio' %}    {% assign id = "s08" %}
+  {% else %}     {% assign id = "i02" %}
+  {% endif %}
+
+  {% comment %}
+    Assign variables
+  {% endcomment %}
+
+  {% if field.address-fields %}
+    {% assign address-fields = field.address-fields %}
+  {% else %}
+    {% assign address-fields = 'full' %}
+  {% endif %}
+
+  {% assign annotation = field.annotation %}
+  {% assign description = field.description %}
+  {% assign error = field.error %}
+  {% assign fields = field.fields %}
+  {% assign group = field.group %}
+  {% assign helptext = field.helptext %}
+  {% assign hidden = field.hidden %}
+  {% assign if = field.if %}
+  {% assign label = field.label %}
+  {% assign level = field.level %}
+  {% assign maxlength = field.maxlength %}
+  {% capture name %}{{ label | slugify }}-field-{{ forloop.index }}{% endcapture %}
+  {% assign optional = field.optional %}
+  {% assign options = field.options %}
+  {% assign other = field.other %}
+  {% assign shows = field.shows %}
+  {% assign size = field.size %}
+  {% assign unit = field.unit %}
+  {% assign url = field.url %}
+
+  {% comment %}
+    Render each field
+  {% endcomment %}
+
+  {% capture includepath %}fields/{{field.type}}.html{% endcapture %}
+
+  {% if field.group %}
+    {% include fields/group.html %}
+  {% elsif field.type == 'header' %}
+    {% include {{ includepath }} %}
+  {% elsif field.type == 'paragraph' %}
+    {% include {{ includepath }} %}
+  {% elsif field.type == 'link' %}
+    {% include {{ includepath }} %}
+  {% elsif field.type == 'address' %}
+    <div class="form-group field-address" {% if field.hidden %}data-hidden="true"{% endif %}>
+
+      {% include elements/annotation.html annotation=annotation %}
+      {% include {{ includepath }} %}
+
+    </div>
+  {% else %}
+    <div class="form-group field-{{ id }}" {% if field.hidden %}data-hidden="true"{% endif %}>
+
+      {% include elements/annotation.html annotation=annotation %}
+
+      {% if field.type %}
+        {% include {{ includepath }} %}
+      {% else %}
+        {% include fields/text.html %}
+      {% endif %}
+      <p class="help-block with-errors"></p>
+    </div>
+  {% endif %}
+
+{% endfor %}

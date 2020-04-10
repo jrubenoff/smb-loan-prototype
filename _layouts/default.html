@@ -1,0 +1,58 @@
+---
+layout: base
+---
+
+<div class="layout-container">
+  <main role="main">
+    <form class="usa-form">
+      <div class="sections-container">
+        {% include render_form.html form=page.form %}
+      </div>
+    </form>
+  </main>
+</div>
+
+{{ content }}
+
+<div class="form-settings active">
+  <h5>Show&hellip;</h5>
+
+  <a href="javascript:void(0);" class="form-settings-toggle" title="Toggle settings">
+    <img src="/assets/images/settings-toggle.svg" alt="Toggle settings" />
+  </a>
+
+
+<div class="form-group field-s06">
+  <label class="checkbox">
+    <input type="checkbox" id="settings-all-pages">
+    <span class="inline-label">Every page</span>
+  </label>
+</div>
+
+<div class="form-group field-s06">
+  <label class="checkbox">
+    <input type="checkbox" id="settings-all-conditionals">
+    <span class="inline-label">All conditionals</span>
+  </label>
+</div>
+
+<div class="form-group field-s06">
+  <label class="checkbox">
+    <input type="checkbox" id="settings-all-annotations">
+    <span class="inline-label">Annotations</span>
+  </label>
+</div>
+
+<div class="form-group field-s06">
+  <label class="checkbox">
+    <input type="checkbox" id="settings-show-hidden">
+    <span class="inline-label">Hidden fields</span>
+  </label>
+</div>
+
+<div class="form-group field-s06">
+  <label class="checkbox">
+    <input type="checkbox" id="settings-top-nav">
+    <span class="inline-label">Page navigation on top</span>
+  </label>
+</div>

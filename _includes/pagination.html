@@ -1,0 +1,14 @@
+{% if forloop.length > 1 %}
+  <div class="form-group pagination">
+    {% if forloop.first %}
+      <button class="usa-button form-section-next">Start</button>
+    {% else %}
+      <button class="usa-button usa-button--unstyled form-section-prev">Previous</button>
+      {% if forloop.last %}
+        <button id="submit" class="usa-button form-section-submit">Submit</button>
+      {% else %}
+        <button class="usa-button form-section-next">Next</button>
+      {% endif %}
+    {% endif %}
+  </div>
+{% endif %}

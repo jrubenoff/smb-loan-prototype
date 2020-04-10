@@ -1,0 +1,12 @@
+<label class="usa-label valtype" for="{{ name }}" data-valtype="label">
+  {% include elements/label.html %}
+</label>
+<div class="field-container">
+  <div class="textarea">
+    <textarea class="usa-input valtype textarea-{{ size | default: 'small' }}" data-valtype="textarea" name="{{ name }}"
+    {% unless optional %} required="required"{% endunless %}
+    {% if error %} data-error="{{ error }}"{% endif %} /> </textarea>
+
+    {% include elements/helptext.html %}
+  </div>
+</div>

@@ -1,0 +1,53 @@
+{% capture currentform %}{{ include.form }}{% endcapture %}
+
+{% for currentpage in site.data[currentform] %}
+
+  {% assign fields = currentpage.fields %}
+  {% assign label = currentpage.title %}
+
+  {% assign length = forloop.length %}
+
+  {% assign percentdone = forloop.index | times: '100' | divided_by: forloop.length %}
+
+  <div class="form-section"{% if currentpage.group %} data-group="{{ currentpage.group }}"{% endif %}>
+
+    <header class="usa-header usa-header--basic" id="page-{{ forloop.index }}">
+      {% comment %} Form title {% endcomment %}
+      <div class="usa-logo">
+        <em class="usa-logo__text">{{ page.title }}</em>
+      </div>
+
+      <div class="usa-header__content">
+        <div class="form-progress">
+          {% if length < 6 %}
+            <div class="form-progress-bubble">Page {{ forloop.index }} of {{ length }}</div>
+          {% else %}
+            {% comment %} Progress bar {% endcomment %}
+            <div class="form-progress-bar form-progress-bar-{{ percentdone }}">{{ percentdone }}% done</div>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+    <h1>
+      {{ label | markdownify | remove: '<p>' | remove: '</p>' }}
+    </h1>
+    {% if currentpage.description %}
+      {{ currentpage.description | markdownify | improve }}
+    {% endif %}
+
+    <div class="form-content">
+      <div class="form-content-inner">
+
+        <div class="nav-on-top">
+          {% include pagination.html %}
+        </div>
+        {% comment %} Render fields in the currentpage {% endcomment %}
+        {% include render_field.html %}
+
+        {% include pagination.html %}
+      </div>
+    </div>
+
+  </div>
+{% endfor %}

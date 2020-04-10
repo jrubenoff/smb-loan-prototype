@@ -1,0 +1,15 @@
+<label class="usa-label valtype" for="{{ name }}" data-valtype="label">
+  {% include elements/label.html %}
+</label>
+<div class="field-container">
+  <select class="usa-input input-md valtype" data-valtype="option" name="{{ name }}"
+  {% unless optional %} required="required"{% endunless %}
+  {% if error %} data-error="{{ error }}" {% endif %}>
+  {{ options }}
+  {% for option in options %}
+    <option value="{{ option.label }}">{{ option.label }}</option>
+  {% endfor %}
+  </select>
+
+  {% include elements/helptext.html %}
+</div>
